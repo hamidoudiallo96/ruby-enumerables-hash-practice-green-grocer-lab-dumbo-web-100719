@@ -52,6 +52,7 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
+  final_bill_total = 0
   consolidated_cart = consolidate_cart(cart)
   total_cart_price = apply_clearance(apply_coupons(consolidated_cart,coupons))
   total_cart_price.each do |(product,value)|
