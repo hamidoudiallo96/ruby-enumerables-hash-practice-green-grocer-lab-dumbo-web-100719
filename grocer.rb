@@ -56,6 +56,11 @@ def checkout(cart, coupons)
   total_cart_price = apply_clearance(apply_coupons(consolidated_cart,coupons))
   total_cart_price.each do |(product,value)|
     total_bill = value[:price] * value[:count]
+    final_bill_total += total_bill
   end
-  return total_bill
+  extended_discout = 0.10
+  if final_bill_total > 100
+    final_bill_total -= final_bill_total*extended_discout
+  end
+  return final_bill_total
 end
