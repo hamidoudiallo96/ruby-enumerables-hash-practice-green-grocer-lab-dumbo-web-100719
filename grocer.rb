@@ -62,7 +62,7 @@ def checkout(cart, coupons)
   # 10% discout
   extended_discount = 0.10
   if final_bill_total > 100
-    final_bill_total += final_bill_total * extended_discount
+    final_bill_total -= final_bill_total * extended_discount
   end
   return final_bill_total
 end
